@@ -1,0 +1,14 @@
+h1 Payment
+table.table
+  th
+    td Item ID
+    td Price
+    td Amount
+  - http_get(endpoint_of("payment", "payments"))[:payments].each do |payment|
+    tr
+      td
+        = payment[:item_id]
+      td
+        = payment[:price]
+      td
+        = payment[:amount]

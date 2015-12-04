@@ -1,0 +1,10 @@
+h1 Shopping Catalog
+table.table
+  th
+    td Name
+    td Description
+  - http_get(endpoint_of("catalog", "items"))[:items].each do |item|
+    tr
+      td
+        = item[:name]
+        = item[:description]

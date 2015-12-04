@@ -1,0 +1,33 @@
+frontend:
+  build: frontend
+  links:
+  - cart_service:cart
+  - catalog_service:catalog
+  - payment_service:payment
+  - shipment_service:shipment
+  ports:
+  - 80:9292
+cart_service:
+  build: services/cart
+  links:
+  - cart_db:db
+catalog_service:
+  build: services/catalog
+  links:
+  - catalog_db:db
+payment_service:
+  build: services/payment
+  links:
+  - payment_db:db
+shipment_service:
+  build: services/shipment
+  links:
+  - shipment_db:db
+cart_db:
+  image: postgres:9.4
+catalog_db:
+  image: postgres:9.4
+payment_db:
+  image: postgres:9.4
+shipment_db:
+  image: postgres:9.4

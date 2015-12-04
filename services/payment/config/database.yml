@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  user: postgres
+  host: db
+  port: 5432
+
+development:
+  <<: *default
+  database: payment_development
+
+test:
+  <<: *default
+  database: payment_test
+
+production:
+  <<: *default
+  database: payment_production

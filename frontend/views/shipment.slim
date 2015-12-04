@@ -1,0 +1,14 @@
+h1 Shipment
+table.table
+  th
+    td Item ID
+    td Amount
+    td Address
+  - http_get(endpoint_of("shipment", "shipments"))[:shipments].each do |shipment|
+    tr
+      td
+        = shipment[:item_id]
+      td
+        = shipment[:amount]
+      td
+        = shipment[:address]
